@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedInAI – Write perfect LinkedIn messages in one click</title>
+  <meta name="description" content="Generate personalized LinkedIn connection requests, DMs, and InMails with Claude AI. 10x your reply rate. Free to start." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --li-blue: #0a66c2;
+      --li-dark: #004182;
+      --text: #1d2226;
+      --muted: #666;
+      --border: #e0e0e0;
+      --bg: #f3f6f8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; color: var(--li-blue); }
+    .nav-logo span { font-size: 22px; }
+    .nav-cta {
+      background: var(--li-blue); color: white;
+      border: none; border-radius: 20px;
+      padding: 8px 20px; font-size: 14px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--li-dark); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #f0f7ff 0%, #e8f0fe 100%);
+      text-align: center;
+      padding: 80px 24px 70px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #e0eeff; color: var(--li-blue);
+      font-size: 13px; font-weight: 700;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+      max-width: 720px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero h1 em { color: var(--li-blue); font-style: normal; }
+    .hero p {
+      font-size: 18px; color: var(--muted);
+      max-width: 520px; margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--li-blue); color: white;
+      border-radius: 8px; padding: 14px 28px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.15s; box-shadow: 0 4px 14px rgba(10,102,194,0.3);
+    }
+    .btn-primary:hover { background: var(--li-dark); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: var(--text);
+      border: 2px solid var(--border); border-radius: 8px; padding: 13px 24px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--li-blue); color: var(--li-blue); }
+
+    .hero-social-proof {
+      margin-top: 28px; font-size: 13px; color: var(--muted);
+    }
+    .hero-social-proof strong { color: var(--text); }
+
+    /* DEMO MOCKUP */
+    .demo-section {
+      max-width: 700px; margin: 60px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .demo-section h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 20px; }
+    .demo-window {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: left;
+    }
+    .demo-topbar {
+      background: var(--li-blue); color: white;
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 700;
+    }
+    .demo-profile-strip {
+      padding: 14px 16px;
+      background: #f3f6f8;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .demo-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--li-blue); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; flex-shrink: 0;
+    }
+    .demo-pname { font-size: 13px; font-weight: 700; }
+    .demo-ptitle { font-size: 11px; color: var(--muted); }
+    .demo-controls { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .demo-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .demo-chip {
+      border-radius: 14px; padding: 4px 10px; font-size: 11px; font-weight: 600;
+      background: #f0f0f0; border: 1.5px solid #ddd; color: #444;
+    }
+    .demo-chip.active { background: var(--li-blue); color: white; border-color: var(--li-blue); }
+    .demo-generate {
+      width: 100%; background: var(--li-blue); color: white;
+      border: none; border-radius: 7px; padding: 10px;
+      font-size: 13px; font-weight: 700; cursor: default;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .demo-output { padding: 14px 16px; }
+    .demo-output-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px; }
+    .demo-message {
+      background: var(--bg); border-radius: 8px; padding: 12px;
+      font-size: 13px; line-height: 1.6; color: var(--text);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .demo-copy-btn {
+      position: absolute; top: 8px; right: 8px;
+      background: var(--li-blue); color: white;
+      border: none; border-radius: 5px; padding: 3px 10px;
+      font-size: 11px; font-weight: 600; cursor: default;
+    }
+    .demo-char { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+    /* HOW IT WORKS */
+    .how-section {
+      background: var(--bg);
+      padding: 70px 24px;
+      text-align: center;
+    }
+    .section-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--li-blue); margin-bottom: 10px; }
+    .section-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 48px; }
+    .steps { display: flex; gap: 24px; max-width: 800px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .step {
+      flex: 1; min-width: 200px; max-width: 240px;
+      background: white; border-radius: 14px; padding: 24px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--li-blue); color: white;
+      font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .step h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* FEATURES */
+    .features-section { padding: 70px 24px; max-width: 900px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+    .feature-card {
+      border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 20px; background: white;
+    }
+    .feature-icon { font-size: 26px; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* PRICING */
+    .pricing-section {
+      background: var(--bg); padding: 70px 24px; text-align: center;
+    }
+    .pricing-grid { display: flex; gap: 16px; max-width: 680px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .plan-card {
+      flex: 1; min-width: 260px; max-width: 300px;
+      background: white; border: 2px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      text-align: left;
+    }
+    .plan-card.pro { border-color: var(--li-blue); position: relative; }
+    .plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--li-blue); color: white;
+      font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 10px;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .plan-price { font-size: 38px; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 4px; }
+    .plan-price sub { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .plan-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .plan-features { list-style: none; margin-bottom: 24px; }
+    .plan-features li { font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--bg); display: flex; align-items: flex-start; gap: 8px; }
+    .plan-features li::before { content: '✓'; color: var(--li-blue); font-weight: 700; flex-shrink: 0; }
+    .plan-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: all 0.15s;
+    }
+    .plan-btn-free { background: var(--bg); color: var(--text); border: 2px solid var(--border); }
+    .plan-btn-free:hover { border-color: var(--li-blue); }
+    .plan-btn-pro { background: var(--li-blue); color: white; box-shadow: 0 4px 14px rgba(10,102,194,0.3); }
+    .plan-btn-pro:hover { background: var(--li-dark); }
+
+    /* SOCIAL PROOF */
+    .proof-section { padding: 70px 24px; text-align: center; }
+    .testimonials { display: flex; gap: 16px; max-width: 860px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .testimonial {
+      flex: 1; min-width: 240px; max-width: 270px;
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 20px; text-align: left;
+    }
+    .testimonial-text { font-size: 13px; line-height: 1.6; color: var(--text); margin-bottom: 14px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 8px; }
+    .testimonial-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--li-blue); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; flex-shrink: 0;
+    }
+    .testimonial-name { font-size: 12px; font-weight: 700; }
+    .testimonial-role { font-size: 11px; color: var(--muted); }
+    .stars { color: #f5c518; font-size: 12px; margin-bottom: 8px; }
+
+    /* FAQ */
+    .faq-section { background: var(--bg); padding: 70px 24px; }
+    .faq-inner { max-width: 620px; margin: 0 auto; }
+    .faq-item { background: white; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; cursor: pointer; }
+    .faq-q { font-size: 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 18px; color: var(--muted); }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a { font-size: 13px; color: var(--muted); line-height: 1.6; display: none; margin-top: 10px; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA BANNER */
+    .cta-section {
+      background: linear-gradient(135deg, var(--li-blue), var(--li-dark));
+      padding: 70px 24px; text-align: center; color: white;
+    }
+    .cta-section h2 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; opacity: 0.85; margin-bottom: 30px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: var(--li-blue);
+      border-radius: 8px; padding: 14px 30px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 24px;
+      text-align: center;
+      font-size: 13px; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--li-blue); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero { padding: 50px 20px 50px; }
+      .steps, .pricing-grid { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>⚡</span> LinkedInAI</div>
+  <a href="#pricing" class="nav-cta">Get Started Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🤖 Powered by Claude AI</div>
+  <h1>Write perfect LinkedIn messages<br><em>in one click</em></h1>
+  <p>AI reads the profile. You click generate. Land more meetings, deals, and opportunities — without sounding like a robot.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="9" fill="white" fill-opacity="0.2"/><text x="4" y="13" font-size="11" fill="white">⚡</text></svg>
+      Add to Chrome — Free
+    </a>
+    <a href="#demo" class="btn-secondary">See it in action →</a>
+  </div>
+  <div class="hero-social-proof">
+    <strong>10 free messages/month.</strong> No credit card required.
+  </div>
+</section>
+
+<!-- DEMO MOCKUP -->
+<div class="demo-section" id="demo">
+  <h2>See it in action</h2>
+  <div class="demo-window">
+    <div class="demo-topbar">⚡ LinkedInAI</div>
+    <div class="demo-profile-strip">
+      <div class="demo-avatar">S</div>
+      <div>
+        <div class="demo-pname">Sarah Chen</div>
+        <div class="demo-ptitle">VP of Sales · TechCorp Inc · San Francisco</div>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Message Type</div>
+      <div class="demo-chips">
+        <div class="demo-chip active">🤝 Connection</div>
+        <div class="demo-chip">💬 DM</div>
+        <div class="demo-chip">📧 InMail</div>
+        <div class="demo-chip">🔁 Follow-up</div>
+      </div>
+      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Tone</div>
+      <div class="demo-chips">
+        <div class="demo-chip active">👔 Pro</div>
+        <div class="demo-chip">😊 Friendly</div>
+        <div class="demo-chip">⚡ Direct</div>
+      </div>
+      <div style="margin-top:10px">
+        <div class="demo-generate">✨ Generate Message</div>
+      </div>
+    </div>
+    <div class="demo-output">
+      <div class="demo-output-label">Generated Message</div>
+      <div class="demo-message">
+        Hi Sarah — your journey from AE to VP at TechCorp is exactly the kind of story I find fascinating. I'm building in the sales enablement space and would love to connect and swap notes on what's actually moving the needle in enterprise sales right now. Happy to keep it brief!
+        <button class="demo-copy-btn">Copy</button>
+      </div>
+      <div class="demo-char">187 chars · Connection request (300 char limit)</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-tag">How it works</div>
+  <div class="section-title">Three steps to more replies</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Open any LinkedIn profile</h3>
+      <p>Navigate to the person you want to reach. LinkedInAI automatically reads their profile.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Choose type & tone</h3>
+      <p>Connection request, DM, InMail, or follow-up. Professional, friendly, or direct.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Generate & copy</h3>
+      <p>Click Generate. Get a personalized message in seconds. Copy it straight to LinkedIn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="section-tag" style="text-align:center">Features</div>
+  <div class="section-title" style="text-align:center">Everything you need to close more conversations</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>One-click generation</h3>
+      <p>Claude reads the profile and writes a message tailored specifically to that person — no copy-paste templates.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Four message types</h3>
+      <p>Connection requests (300 chars), DMs, InMails, and follow-ups. Character limits enforced automatically.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎭</div>
+      <h3>Adjustable tone</h3>
+      <p>Professional, friendly, direct, or casual. Match your style to the context and the person.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>Template library</h3>
+      <p>Save messages that work. Build your personal playbook of high-performing openers.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Private & secure</h3>
+      <p>Your API key stays on your device. We never store your LinkedIn data or your messages.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌍</div>
+      <h3>Works globally</h3>
+      <p>Any language, any market. Claude handles English, Japanese, Spanish, German, French and more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-tag">Pricing</div>
+  <div class="section-title">Start free. Upgrade when you're ready.</div>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="plan-name">Free</div>
+      <div class="plan-price">$0</div>
+      <div class="plan-desc">10 messages per month, forever.</div>
+      <ul class="plan-features">
+        <li>10 AI-generated messages/month</li>
+        <li>All message types</li>
+        <li>All tone options</li>
+        <li>Chrome extension</li>
+      </ul>
+      <a href="#" class="plan-btn plan-btn-free">Add to Chrome</a>
+    </div>
+    <div class="plan-card pro">
+      <div class="plan-badge">⭐ Most Popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">$19<sub>/mo</sub></div>
+      <div class="plan-desc">Unlimited messages. Cancel anytime.</div>
+      <ul class="plan-features">
+        <li>Unlimited AI messages</li>
+        <li>Template library (save & reuse)</li>
+        <li>Outreach tracker</li>
+        <li>Custom instructions</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#" class="plan-btn plan-btn-pro">Start Pro Free Trial</a>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-size:13px;color:var(--muted)">No credit card required to start. Cancel anytime.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="proof-section">
+  <div class="section-tag">Social proof</div>
+  <div class="section-title">People are getting replies</div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"My reply rate went from 8% to 34% in two weeks. The messages actually sound like me, not a bot."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div>
+          <div class="testimonial-name">Marcus T.</div>
+          <div class="testimonial-role">Account Executive, NYC</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"I do 50+ outreach messages a day. This saves me at least 2 hours. Worth every penny."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">J</div>
+        <div>
+          <div class="testimonial-name">Jess K.</div>
+          <div class="testimonial-role">Recruiter, London</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Finally an AI tool that doesn't sound like every other cold message. It references real stuff from their profile."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">D</div>
+        <div>
+          <div class="testimonial-name">David R.</div>
+          <div class="testimonial-role">Founder, Berlin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-tag" style="text-align:center">FAQ</div>
+    <div class="section-title" style="text-align:center;margin-bottom:32px">Common questions</div>
+    <div class="faq-item open">
+      <div class="faq-q">Do I need a Claude API key?</div>
+      <div class="faq-a">Yes. You need an Anthropic API key (free to get at console.anthropic.com). The cost is tiny — roughly $0.001 per message with Claude Haiku. We don't mark it up. Your key stays on your device.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is my LinkedIn data safe?</div>
+      <div class="faq-a">Yes. LinkedInAI reads the profile you have open and sends only that data to the Claude API to generate your message. We never store your LinkedIn activity, your messages, or your contacts.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does it work in languages other than English?</div>
+      <div class="faq-a">Yes. Claude supports most major languages. Just describe your goal in the custom instructions field in your language, and it will generate messages accordingly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will LinkedIn detect this?</div>
+      <div class="faq-a">LinkedInAI generates text only — it does not auto-send anything. You always review, copy, and paste the message yourself. There's nothing for LinkedIn to detect.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I cancel my Pro subscription?</div>
+      <div class="faq-a">Yes, cancel anytime from your account settings. You'll keep Pro access until the end of your billing period, then drop to the free tier.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Start writing better LinkedIn messages today</h2>
+  <p>Free forever. No credit card needed. Up in 30 seconds.</p>
+  <a href="#" class="btn-white">⚡ Add to Chrome — Free</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 LinkedInAI · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:hi@linkedinai.app">Contact</a></p>
+  <p style="margin-top:6px;font-size:12px">Not affiliated with LinkedIn Corporation.</p>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
