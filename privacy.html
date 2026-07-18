@@ -13,7 +13,7 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p><strong>LinkedInAI – AI Message Generator</strong><br>Last updated: June 27, 2026</p>
+  <p><strong>LinkedInAI – AI Message Generator</strong><br>Last updated: July 18, 2026</p>
 
   <h2>1. Overview</h2>
   <p>LinkedInAI is a Chrome extension that helps you generate personalized LinkedIn messages using the Anthropic Claude AI API. We are committed to protecting your privacy.</p>
@@ -22,9 +22,10 @@
   <p>LinkedInAI collects the following data:</p>
   <ul>
     <li><strong>LinkedIn profile information</strong> – Name, headline, and role visible on the LinkedIn profile page you are currently viewing. This data is read from your browser tab and sent to the Anthropic Claude API to generate messages. It is not stored on our servers.</li>
+    <li><strong>LinkedIn conversation content</strong> – When you use the extension on a LinkedIn message thread, the recent messages in that thread (including messages you and the other person have written) are read from your browser tab and sent to the Anthropic Claude API so the generated reply fits the conversation. This happens only when you open the extension on a message thread. It is not stored on our servers.</li>
     <li><strong>Anthropic API Key</strong> – Stored locally in your browser using <code>chrome.storage.local</code>. Never transmitted to our servers.</li>
     <li><strong>Usage count</strong> – A monthly message count stored locally in your browser. Never transmitted to our servers.</li>
-    <li><strong>License key</strong> – If you purchase a Pro plan, your license key is stored locally in your browser. Never transmitted to our servers.</li>
+    <li><strong>License key</strong> – If you purchase Pro, your license key is stored locally in your browser and sent to Gumroad to verify that the purchase is valid. It is not sent to any server operated by us.</li>
   </ul>
 
   <h2>3. Data We Do Not Collect</h2>
@@ -36,16 +37,17 @@
   </ul>
 
   <h2>4. Third-Party Services</h2>
-  <p>LinkedInAI uses the <strong>Anthropic Claude API</strong> to generate messages. Profile data from the current LinkedIn page is sent to Anthropic's API for this purpose. Please review <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details on how they handle data.</p>
+  <p>LinkedInAI uses the <strong>Anthropic Claude API</strong> to generate messages. Profile data, and conversation content when you use the extension on a message thread, is sent to Anthropic's API for this purpose. Please review <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details on how they handle data.</p>
+  <p>If you purchase Pro, LinkedInAI sends your license key to <strong>Gumroad</strong> to confirm the purchase is valid, when you activate it and periodically thereafter. See <a href="https://gumroad.com/privacy" target="_blank">Gumroad's Privacy Policy</a>.</p>
 
   <h2>5. Data Storage</h2>
-  <p>All user data (API key, usage count, license key) is stored locally on your device using Chrome's built-in storage. No data is transmitted to or stored on LinkedInAI's servers.</p>
+  <p>All user data (API key, usage count, license key) is stored locally on your device using Chrome's built-in storage. We do not operate any server, so no data is transmitted to or stored by us. Data leaves your device only to reach Anthropic (to generate a message) and Gumroad (to verify a licence).</p>
 
   <h2>6. Permissions</h2>
   <p>LinkedInAI requests the following Chrome permissions:</p>
   <ul>
     <li><strong>activeTab</strong> – To read the LinkedIn profile page you are currently viewing.</li>
-    <li><strong>scripting</strong> – To extract profile information from the LinkedIn page.</li>
+    <li><strong>scripting</strong> – To read profile information, or the open conversation, from the LinkedIn page, and to insert a generated draft into the message box when you click Insert.</li>
     <li><strong>storage</strong> – To store your API key and usage data locally.</li>
   </ul>
 
@@ -56,6 +58,6 @@
   <p>We may update this Privacy Policy from time to time. Changes will be reflected on this page.</p>
 
   <h2>9. Contact</h2>
-  <p>If you have questions about this Privacy Policy, please contact us at: <a href="mailto:support@linkedinai.app">support@linkedinai.app</a></p>
+  <p>If you have questions about this Privacy Policy, please contact us at: <a href="mailto:vela.support.jp@gmail.com">vela.support.jp@gmail.com</a></p>
 </body>
 </html>
