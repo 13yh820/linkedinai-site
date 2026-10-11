@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LinkedInAI – Draft LinkedIn messages in one click</title>
-  <meta name="description" content="Generate personalized LinkedIn connection requests, DMs, and InMails with Claude AI. Review and copy personalized drafts. 10 free generations per month; Anthropic API usage is billed separately." />
+  <title>LinkedInAI – Paste context, review and copy a draft</title>
+  <meta name="description" content="LinkedInAI's intended manual workflow: paste context, generate, review and copy a draft. Store release and Pro activation are being verified. Pro is $29 once; your own Anthropic API key and separately billed API usage are required." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -97,6 +97,13 @@
       margin-top: 28px; font-size: 13px; color: var(--muted);
     }
     .hero-social-proof strong { color: var(--text); }
+    .release-note {
+      max-width: 700px; margin: 24px auto 0; padding: 16px;
+      background: #fff7e6; border: 1px solid #d7b56d; border-radius: 8px;
+      font-size: 14px; line-height: 1.6; text-align: left;
+    }
+    .release-note strong { display: block; margin-bottom: 6px; }
+    .workflow-note { max-width: 700px; margin: -24px auto 32px; font-size: 14px; line-height: 1.6; color: var(--muted); }
 
     /* DEMO MOCKUP */
     .demo-section {
@@ -155,7 +162,7 @@
       position: relative;
     }
     .demo-copy-btn {
-      position: absolute; top: 8px; right: 8px;
+      display: block; width: max-content; margin-top: 8px;
       background: var(--li-blue); color: white;
       border: none; border-radius: 5px; padding: 3px 10px;
       font-size: 11px; font-weight: 600; cursor: default;
@@ -303,36 +310,40 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo"><span>⚡</span> LinkedInAI</div>
-  <a href="#pricing" class="nav-cta">Get Started Free</a>
+  <a href="#pricing" class="nav-cta">Plans & setup</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">🤖 Powered by Claude AI</div>
-  <h1>Draft LinkedIn messages<br><em>in one click</em></h1>
-  <p>Generate a message draft with Claude AI using the profile you have open. Review and edit it before you send.</p>
+  <h1>Your context.<br><em>A draft you review.</em></h1>
+  <p>The intended workflow: manually paste the context you choose, generate a draft with Claude AI, then review and copy it. You edit and send the message yourself.</p>
   <div class="hero-btns">
     <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="btn-primary">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="9" fill="white" fill-opacity="0.2"/><text x="4" y="13" font-size="11" fill="white">⚡</text></svg>
-      Add to Chrome — Free
+      View Chrome listing
     </a>
-    <a href="#demo" class="btn-secondary">See it in action →</a>
+    <a href="#demo" class="btn-secondary">See a draft example →</a>
   </div>
   <div class="hero-social-proof">
-    <strong>10 free messages/month.</strong> Your own Anthropic API key is required; API usage is billed separately.
+    <strong>Free plan: 10 extension generations/month.</strong> Your own Anthropic API key is required; API usage is billed separately.
+  </div>
+  <div class="release-note" id="release-status">
+    <strong>Before you buy — verification in progress</strong>
+    The current Chrome Web Store release, Pro entitlements and activation after a real purchase have not yet been verified. If you need Pro immediately, wait until these checks are complete. The manual workflow below is an intended update, not confirmation of the current Store release. No unpublished candidate is offered as a released version.
   </div>
 </section>
 
 <!-- DEMO MOCKUP -->
 <div class="demo-section" id="demo">
-  <h2>Illustrative mockup</h2>
+  <h2>Intended manual workflow · static example</h2>
   <div class="demo-window">
-    <div class="demo-topbar">⚡ LinkedInAI</div>
+    <div class="demo-topbar">⚡ LinkedInAI · Illustrative mockup</div>
     <div class="demo-profile-strip">
       <div class="demo-avatar">S</div>
       <div>
-        <div class="demo-pname">Sarah Chen</div>
-        <div class="demo-ptitle">VP of Sales · TechCorp Inc · San Francisco</div>
+        <div class="demo-pname">Context you manually choose and paste</div>
+        <div class="demo-ptitle">Fictional example: Sarah leads sales at TechCorp. Goal: connect and discuss sales enablement.</div>
       </div>
     </div>
     <div class="demo-controls">
@@ -356,51 +367,52 @@
     <div class="demo-output">
       <div class="demo-output-label">Generated Message</div>
       <div class="demo-message">
-        Hi Sarah — your journey from AE to VP at TechCorp is exactly the kind of story I find fascinating. I'm building in the sales enablement space and would love to connect and swap notes on what's actually moving the needle in enterprise sales right now. Happy to keep it brief!
-        <button class="demo-copy-btn">Copy</button>
+        Hi Sarah — I work in sales enablement and would like to connect. I'd be interested in hearing your perspective on helping sales teams at TechCorp. Happy to exchange ideas if that is useful to you.
+        <span class="demo-copy-btn" aria-hidden="true">Copy example</span>
       </div>
-      <div class="demo-char">Illustrative draft · Review the message and character count before sending.</div>
+      <div class="demo-char">Static example, not a live generator or the current Store interface. Check facts, wording and length before copying and sending.</div>
     </div>
   </div>
 </div>
 
 <!-- HOW IT WORKS -->
 <section class="how-section">
-  <div class="section-tag">How it works</div>
-  <div class="section-title">Three steps to draft a message</div>
+  <div class="section-tag">Intended manual workflow</div>
+  <div class="section-title">Paste. Generate and review. Copy.</div>
+  <p class="workflow-note">These steps describe the manual update being verified. Availability in the current Store release is unconfirmed.</p>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Open any LinkedIn profile</h3>
-      <p>Navigate to the person you want to reach. LinkedInAI automatically reads their profile.</p>
+      <h3>Paste context yourself</h3>
+      <p>Choose relevant details or conversation text you have permission to share. Paste them manually and describe what you want to say.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Choose type & tone</h3>
-      <p>Connection request, DM, InMail, or follow-up. Professional, friendly, or direct.</p>
+      <h3>Generate and review</h3>
+      <p>Choose a message type and tone, then generate. Check and edit facts, wording and length; AI drafts can contain mistakes.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Generate & copy</h3>
-      <p>Click Generate, review and edit the draft, then copy it. You decide whether to send it.</p>
+      <h3>Copy when ready</h3>
+      <p>Copy the reviewed text into LinkedIn yourself. You decide whether to send it. Replies, leads and sales are not guaranteed.</p>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features-section" id="features">
-  <div class="section-tag" style="text-align:center">Features</div>
-  <div class="section-title" style="text-align:center">Message drafting controls</div>
+  <div class="section-tag" style="text-align:center">Planned drafting controls</div>
+  <div class="section-title" style="text-align:center">Shape the draft you want</div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">⚡</div>
-      <h3>One-click generation</h3>
-      <p>Claude reads the profile and writes a message tailored specifically to that person — no copy-paste templates.</p>
+      <h3>Context you choose</h3>
+      <p>The manual update uses the text you paste and the goal you provide. Share only what is needed and appropriate for the draft.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎯</div>
       <h3>Four message types</h3>
-      <p>Connection requests, DMs, InMails, and follow-ups. Review the character count before sending.</p>
+      <p>Draft a connection request, reply, InMail or follow-up. Check LinkedIn's limits before sending; InMail access is not included.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎭</div>
@@ -415,12 +427,12 @@
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
       <h3>Data and API access</h3>
-      <p>Your API key is stored in your browser and sent to Anthropic for generation. The extension sends profile or thread content directly to Anthropic.</p>
+      <p>Generation uses an Anthropic API key you already own. In the manual update, your pasted context, goal, message type and tone are sent to Anthropic.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🌍</div>
-      <h3>Works globally</h3>
-      <p>Any language, any market. Claude handles English, Japanese, Spanish, German, French and more.</p>
+      <h3>Language instructions</h3>
+      <p>Ask for the language you need in your goal. Check the translation, meaning and tone before using the result.</p>
     </div>
   </div>
 </section>
@@ -428,7 +440,8 @@
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="section-tag">Pricing</div>
-  <div class="section-title">Start free. Upgrade when you're ready.</div>
+  <div class="section-title">Review setup before choosing Pro</div>
+  <p class="workflow-note">The current Store release and purchase-to-activation process are still being verified. If you need Pro immediately, please wait. The manual update is not yet a confirmed Store release.</p>
   <div class="pricing-grid">
     <div class="plan-card">
       <div class="plan-name">Free</div>
@@ -440,7 +453,7 @@
         <li>All tone options</li>
         <li>Chrome extension</li>
       </ul>
-      <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="plan-btn plan-btn-free">Add to Chrome</a>
+      <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="plan-btn plan-btn-free">View Chrome listing</a>
     </div>
     <div class="plan-card pro">
       <div class="plan-badge">⭐ Pro</div>
@@ -448,14 +461,14 @@
       <div class="plan-price">$29<sub> once</sub></div>
       <div class="plan-desc">One payment. No subscription or renewal. Anthropic API usage is billed separately.</div>
       <ul class="plan-features">
-        <li>Unlimited extension generations</li>
+        <li>Extension quota removed with a verified Pro license</li>
         <li>Custom instructions</li>
         <li>Email support</li>
       </ul>
-      <a href="https://hyoism.gumroad.com/l/knjlbp" class="plan-btn plan-btn-pro">Buy Pro — $29 once</a>
+      <a href="https://hyoism.gumroad.com/l/knjlbp" class="plan-btn plan-btn-pro">Review Pro — $29 once</a>
     </div>
   </div>
-  <p style="margin-top:20px;font-size:13px;color:var(--muted)">Try 10 generations per month before buying Pro. Both plans require your own Anthropic API key and separately billed API usage.</p>
+  <p style="margin-top:20px;font-size:13px;color:var(--muted)">Both plans require Google Chrome, your own Anthropic API setup and separately billed API usage. No API credits are included. Anthropic account limits and service availability still apply.</p>
 </section>
 
 <!-- FAQ -->
@@ -465,32 +478,36 @@
     <div class="section-title" style="text-align:center;margin-bottom:32px">Common questions</div>
     <div class="faq-item open">
       <div class="faq-q">Do I need a Claude API key?</div>
-      <div class="faq-a">Yes. Bring your own Anthropic API key. Anthropic bills API usage separately on both Free and Pro, based on input and output tokens. Review current pricing at <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic</a> before generating. We do not mark up API usage.</div>
+      <div class="faq-a">Yes. Bring an Anthropic API key you already own and arrange API access through your Anthropic account. Anthropic bills API usage separately on both Free and Pro, based on the model and input/output tokens. No API credits are included in the $29 price. Review current <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic pricing</a> before generating.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What data leaves my browser?</div>
-      <div class="faq-a">When you generate, profile details or recent conversation messages, your existing draft and additional instructions are sent to Anthropic using your API key. The extension stores your key, usage count, cached profiles and license details in your browser. License verification sends your Pro key to Gumroad. See the <a href="privacy.html">privacy policy</a>.</div>
+      <div class="faq-a">In the intended manual update, generation sends your pasted context, goal, message type and tone to Anthropic using your API key. License verification sends your Pro key to Gumroad. This is not confirmation of the current Store build's data handling. The existing <a href="privacy.html">privacy policy</a> describes the earlier implementation, including profile reading and browser storage, and has not yet been updated for the manual release. Review it before use.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Does it work in languages other than English?</div>
-      <div class="faq-a">Yes. Claude supports most major languages. Just describe your goal in the custom instructions field in your language, and it will generate messages accordingly.</div>
+      <div class="faq-a">The manual workflow lets you request a language in your goal. Language quality varies; review the meaning and wording yourself. The exact controls available in the current Store build have not yet been verified.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How does this interact with LinkedIn’s rules?</div>
-      <div class="faq-a">The extension reads LinkedIn page content and can insert a draft into the message box; you decide whether to send it. LinkedIn restricts third-party tools that scrape content, modify its website or automate activity. Review its <a href="https://www.linkedin.com/legal/user-agreement">User Agreement</a> and <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions">extension rules</a> before use. We cannot guarantee account safety.</div>
+      <div class="faq-a">The intended manual workflow leaves pasting, editing and sending to you. It does not promise automatic profile reading, message insertion or sending. Current Store behavior remains unverified. Review LinkedIn's <a href="https://www.linkedin.com/legal/user-agreement">User Agreement</a> and <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions">extension rules</a> before use. Manual use does not guarantee account safety.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Is Pro a subscription?</div>
-      <div class="faq-a">No. Pro is a one-time $29 purchase through Gumroad. There is no recurring LinkedInAI subscription. Anthropic API usage remains separately billed. After purchase, activate the license key in the extension settings.</div>
+      <div class="faq-a">No. Pro is a one-time $29 USD purchase through Gumroad. There is no recurring LinkedInAI subscription. Anthropic API usage remains separately billed. Follow the license instructions in your legitimate purchase content. Current Store functionality, Pro entitlements and activation after a real purchase are still being verified.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if it does not work for me?</div>
+      <div class="faq-a">The existing Gumroad refund wording is unchanged: “If it does not work for you, reply to your receipt and I will refund you.” For setup or activation help, reply to your Gumroad receipt email. Never include your API key or license key in a support message.</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>Start writing better LinkedIn messages today</h2>
-  <p>Install the extension, add your Anthropic API key, and try 10 generations per month. API usage is billed separately.</p>
-  <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="btn-white">⚡ Add to Chrome — Free</a>
+  <h2>Check setup before you start</h2>
+  <p>Review the existing listing and privacy policy. Store release and Pro activation checks are in progress; wait for confirmation if you need Pro immediately. Your own Anthropic API key and separately billed API usage are required.</p>
+  <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="btn-white">⚡ View Chrome listing</a>
 </section>
 
 <!-- FOOTER -->
