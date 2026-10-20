@@ -13,27 +13,28 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p><strong>LinkedInAI – AI Message Generator</strong><br>Last updated: July 18, 2026</p>
+  <p><strong>LinkedInAI – AI Message Generator</strong><br>Last updated: October 20, 2026</p>
 
   <h2>1. Overview</h2>
-  <p>LinkedInAI is a Chrome extension that helps you generate personalized LinkedIn messages using the Anthropic Claude AI API. We are committed to protecting your privacy.</p>
+  <p>LinkedInAI is a Chrome extension that helps you generate personalized LinkedIn messages using the Anthropic Claude AI API. This page describes the public 1.1.0 package retrieved from Google's distribution service on October 20, 2026. The separate 1.2.3 candidate is unreleased. The user's installed build and live provider behavior were not verified in this review.</p>
 
   <h2>2. Data We Collect</h2>
   <p>LinkedInAI collects the following data:</p>
   <ul>
     <li><strong>LinkedIn profile information</strong> – Name, headline, and role visible on the LinkedIn profile page you are currently viewing. This data is read from your browser tab and sent to the Anthropic Claude API to generate messages. It is not stored on our servers.</li>
-    <li><strong>LinkedIn conversation content</strong> – When you use the extension on a LinkedIn message thread, the recent messages in that thread (including messages you and the other person have written) are read from your browser tab and sent to the Anthropic Claude API so the generated reply fits the conversation. This happens only when you open the extension on a message thread. It is not stored on our servers.</li>
-    <li><strong>Anthropic API Key</strong> – Stored locally in your browser using <code>chrome.storage.local</code>. Never transmitted to our servers.</li>
+    <li><strong>LinkedIn conversation content</strong> – When you use the extension on a LinkedIn message thread, the recent messages in that thread (including messages you and the other person have written) are read from your browser tab and sent to the Anthropic Claude API so the generated reply fits the conversation. Reading and generation are separate: generation sends the selected context when you choose Generate Message. Current compatibility with real LinkedIn pages remains unverified. It is not stored on our servers.</li>
+    <li><strong>Anthropic API Key</strong> – Stored locally using <code>chrome.storage.local</code> and sent to Anthropic to authenticate generation requests. Saving a key locally does not validate API access or send a generation request.</li>
     <li><strong>Usage count</strong> – A monthly message count stored locally in your browser. Never transmitted to our servers.</li>
     <li><strong>License key</strong> – If you purchase Pro, your license key is stored locally in your browser and sent to Gumroad to verify that the purchase is valid. It is not sent to any server operated by us.</li>
+    <li><strong>Local profile cache and purchase email</strong> – The inspected package can store profile details in local profile caches. On successful Pro activation it also stores the purchase email returned by Gumroad, along with license status and the last check time.</li>
   </ul>
 
   <h2>3. Data We Do Not Collect</h2>
   <ul>
     <li>We do not collect or store your LinkedIn credentials.</li>
-    <li>We do not track your browsing history.</li>
-    <li>We do not share any data with third parties, except Anthropic (for AI message generation).</li>
-    <li>We do not use cookies or analytics.</li>
+    <li>The extension does not request Chrome's browsing-history permission. It can read the selected LinkedIn page and save profile information in local caches.</li>
+    <li>The inspected 1.1.0 package sends generation context to Anthropic and uses the saved API key for authentication. Pro verification sends your license key and product identifier to Gumroad. These are separate third-party services; neither the Pro license nor local key saving includes API usage.</li>
+    <li>The inspected extension package contains no analytics integration. Anthropic and Gumroad have their own privacy policies for information received by their services.</li>
   </ul>
 
   <h2>4. Third-Party Services</h2>
@@ -41,7 +42,7 @@
   <p>If you purchase Pro, LinkedInAI sends your license key to <strong>Gumroad</strong> to confirm the purchase is valid, when you activate it and periodically thereafter. See <a href="https://gumroad.com/privacy" target="_blank">Gumroad's Privacy Policy</a>.</p>
 
   <h2>5. Data Storage</h2>
-  <p>All user data (API key, usage count, license key) is stored locally on your device using Chrome's built-in storage. We do not operate any server, so no data is transmitted to or stored by us. Data leaves your device only to reach Anthropic (to generate a message) and Gumroad (to verify a licence).</p>
+  <p>The inspected 1.1.0 package uses local Chrome storage for the API key, monthly usage, license key/status/check time, purchase email returned during activation, and profile caches. Settings offers Clear for the API key and Deactivate for local Pro settings; these do not remove every profile cache or text already copied to your clipboard. Generation and license verification call Anthropic and Gumroad directly, without a developer-operated intermediary in the inspected code. This description is based on the retrieved package, not a capture of the user's installed extension or the providers' retention behavior.</p>
 
   <h2>6. Permissions</h2>
   <p>LinkedInAI requests the following Chrome permissions:</p>
