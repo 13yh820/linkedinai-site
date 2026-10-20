@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LinkedInAI – Paste context, review and copy a draft</title>
-  <meta name="description" content="LinkedInAI's intended manual workflow: paste context, generate, review and copy a draft. Store release and Pro activation are being verified. Pro is $29 once; your own Anthropic API key and separately billed API usage are required." />
+  <title>LinkedInAI – Release status and setup</title>
+  <meta name="description" content="LinkedInAI public package: 1.1.0. Check release-specific setup before use. Live Pro activation remains unverified. Pro is $29 once; your own Anthropic API key and separately billed API usage are required." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -316,29 +316,43 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">🤖 Powered by Claude AI</div>
-  <h1>Your context.<br><em>A draft you review.</em></h1>
-  <p>The intended workflow: manually paste the context you choose, generate a draft with Claude AI, then review and copy it. You edit and send the message yourself.</p>
+  <h1>LinkedIn drafts.<br><em>Check your release first.</em></h1>
+  <p>The public 1.1.0 package is designed to draft from the LinkedIn profile or conversation you have open. Check the displayed context, review each result, and decide whether to use it. Live LinkedIn compatibility and Pro activation remain under verification.</p>
   <div class="hero-btns">
     <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="btn-primary">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="9" fill="white" fill-opacity="0.2"/><text x="4" y="13" font-size="11" fill="white">⚡</text></svg>
       View Chrome listing
     </a>
-    <a href="#demo" class="btn-secondary">See a draft example →</a>
+    <a href="#setup" class="btn-secondary">Existing 1.1.0 setup →</a>
   </div>
   <div class="hero-social-proof">
-    <strong>Free plan: 10 extension generations/month.</strong> Your own Anthropic API key is required; API usage is billed separately.
+    <strong>Inspected 1.1.0 package: 10 Free generations/month.</strong> Your own Anthropic API key is required; API usage is billed separately.
   </div>
   <div class="release-note" id="release-status">
-    <strong>Before you buy — verification in progress</strong>
-    The current Chrome Web Store release, Pro entitlements and activation after a real purchase have not yet been verified. If you need Pro immediately, wait until these checks are complete. The manual workflow below is an intended update, not confirmation of the current Store release. No unpublished candidate is offered as a released version.
+    <strong>Release checked on 20 October 2026 — live activation still unverified</strong>
+    The official Chrome Web Store listing and the package retrieved from Google's distribution service identify version 1.1.0. Its controls were checked locally with synthetic responses. Your installed build, an owned license's real activation, receipt delivery and live API generation have not been verified. If you need verified Pro access immediately, wait for confirmation. The separate manual-entry 1.2.3 candidate is unreleased and is not the customer download.
   </div>
+</section>
+
+<!-- CURRENT RELEASE SETUP -->
+<section class="how-section" id="setup">
+  <div class="section-tag">Existing purchasers · version 1.1.0</div>
+  <div class="section-title">Match the controls to your release</div>
+  <p class="workflow-note">These labels match the public 1.1.0 package in local tests. They do not establish successful activation on your installation. If your version or controls differ, request release-specific help.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Open the matching settings</h3><p>Keep your existing Gumroad receipt and purchase-content link. Open LinkedInAI's gear-shaped Settings control, or “Open Settings →”. The page is titled “LinkedInAI Settings”. Do not repurchase to troubleshoot.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Check your existing Pro license</h3><p>“Pro License Key” uses “Activate Pro” and checks with Gumroad. This is separate from API access. Version 1.1.0 displays the license field openly and restores saved values; exclude it from screenshots and support messages.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Separate API setup and generation</h3><p>“Claude API Key” uses “Save Key” for a key you already own. Saving locally does not validate API access or generate a draft. “Show” reveals the field. API usage costs extra on both Free and Pro.</p></div>
+  </div>
+  <p style="max-width:760px;margin:24px auto 0">For drafting, confirm the displayed LinkedIn person or conversation before “Generate Message”. Generation sends the selected context and options to Anthropic and may incur charges. Review the result before “Copy”; conversation mode also has “Insert” for placing a draft in the message field. Sending is separate. Real LinkedIn extraction and insertion have not been verified in this review.</p>
+  <p style="max-width:760px;margin:16px auto 0">If setup fails, use your existing receipt's support route with your order reference, installed version, failed step and visible error. Remove all key values and message content. An API error is not fixed by buying another Pro license.</p>
 </section>
 
 <!-- DEMO MOCKUP -->
 <div class="demo-section" id="demo">
-  <h2>Intended manual workflow · static example</h2>
+  <h2>Unreleased 1.2.3 candidate · static example</h2>
   <div class="demo-window">
-    <div class="demo-topbar">⚡ LinkedInAI · Illustrative mockup</div>
+    <div class="demo-topbar">⚡ LinkedInAI · Unreleased candidate illustration</div>
     <div class="demo-profile-strip">
       <div class="demo-avatar">S</div>
       <div>
@@ -350,7 +364,7 @@
       <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Message Type</div>
       <div class="demo-chips">
         <div class="demo-chip active">🤝 Connection</div>
-        <div class="demo-chip">💬 DM</div>
+        <div class="demo-chip">💬 Reply</div>
         <div class="demo-chip">📧 InMail</div>
         <div class="demo-chip">🔁 Follow-up</div>
       </div>
@@ -361,7 +375,7 @@
         <div class="demo-chip">⚡ Direct</div>
       </div>
       <div style="margin-top:10px">
-        <div class="demo-generate">✨ Generate Message</div>
+        <div class="demo-generate">✨ Generate draft</div>
       </div>
     </div>
     <div class="demo-output">
@@ -377,9 +391,9 @@
 
 <!-- HOW IT WORKS -->
 <section class="how-section">
-  <div class="section-tag">Intended manual workflow</div>
+  <div class="section-tag">Unreleased 1.2.3 candidate</div>
   <div class="section-title">Paste. Generate and review. Copy.</div>
-  <p class="workflow-note">These steps describe the manual update being verified. Availability in the current Store release is unconfirmed.</p>
+  <p class="workflow-note">These steps describe the separate 1.2.3 development candidate. They are not instructions for the public 1.1.0 release. The candidate ZIP is not supplied as the customer download.</p>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -441,7 +455,7 @@
 <section class="pricing-section" id="pricing">
   <div class="section-tag">Pricing</div>
   <div class="section-title">Review setup before choosing Pro</div>
-  <p class="workflow-note">The current Store release and purchase-to-activation process are still being verified. If you need Pro immediately, please wait. The manual update is not yet a confirmed Store release.</p>
+  <p class="workflow-note">The public package is identified as 1.1.0. Live purchase-to-activation and API access remain unverified. If you need verified Pro access immediately, please wait. The manual-entry 1.2.3 candidate is unreleased.</p>
   <div class="pricing-grid">
     <div class="plan-card">
       <div class="plan-name">Free</div>
@@ -482,19 +496,19 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">What data leaves my browser?</div>
-      <div class="faq-a">In the intended manual update, generation sends your pasted context, goal, message type and tone to Anthropic using your API key. License verification sends your Pro key to Gumroad. This is not confirmation of the current Store build's data handling. The existing <a href="privacy.html">privacy policy</a> describes the earlier implementation, including profile reading and browser storage, and has not yet been updated for the manual release. Review it before use.</div>
+      <div class="faq-a">The inspected public 1.1.0 package sends selected LinkedIn profile or conversation context and drafting options to Anthropic for generation, using your API key for authentication. Pro checks send a product identifier and license key to Gumroad. Browser storage includes settings, usage and profile caches; activation can also save the purchase email returned by Gumroad. Read the <a href="privacy.html">release-specific privacy policy</a>. The unreleased 1.2.3 manual workflow differs; it must not be assumed to describe 1.1.0.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Does it work in languages other than English?</div>
-      <div class="faq-a">The manual workflow lets you request a language in your goal. Language quality varies; review the meaning and wording yourself. The exact controls available in the current Store build have not yet been verified.</div>
+      <div class="faq-a">The inspected 1.1.0 interface has a goal/custom-instruction field where you can request a language. Output quality varies; review meaning and wording yourself. The manual-entry interface shown above belongs to the unreleased 1.2.3 candidate.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How does this interact with LinkedIn’s rules?</div>
-      <div class="faq-a">The intended manual workflow leaves pasting, editing and sending to you. It does not promise automatic profile reading, message insertion or sending. Current Store behavior remains unverified. Review LinkedIn's <a href="https://www.linkedin.com/legal/user-agreement">User Agreement</a> and <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions">extension rules</a> before use. Manual use does not guarantee account safety.</div>
+      <div class="faq-a">The public 1.1.0 package contains profile/conversation reading and user-triggered draft insertion. The separate 1.2.3 candidate uses manual entry and copying. Neither local package checks nor manual use establish compatibility with today's LinkedIn pages or guarantee account safety. Review LinkedIn's <a href="https://www.linkedin.com/legal/user-agreement">User Agreement</a> and <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions">extension rules</a> before use. Manual use does not guarantee account safety.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Is Pro a subscription?</div>
-      <div class="faq-a">No. Pro is a one-time $29 USD purchase through Gumroad. There is no recurring LinkedInAI subscription. Anthropic API usage remains separately billed. Follow the license instructions in your legitimate purchase content. Current Store functionality, Pro entitlements and activation after a real purchase are still being verified.</div>
+      <div class="faq-a">No. Pro is a one-time $29 USD purchase through Gumroad. There is no recurring LinkedInAI subscription. Anthropic API usage remains separately billed. Follow the license instructions in your legitimate purchase content. The public 1.1.0 package is identified, but real Pro activation, your installation and live API use still need verification.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What if it does not work for me?</div>
@@ -506,7 +520,7 @@
 <!-- CTA -->
 <section class="cta-section">
   <h2>Check setup before you start</h2>
-  <p>Review the existing listing and privacy policy. Store release and Pro activation checks are in progress; wait for confirmation if you need Pro immediately. Your own Anthropic API key and separately billed API usage are required.</p>
+  <p>Review the 1.1.0 setup notes and privacy policy. Live Pro activation and real LinkedIn compatibility remain unverified; wait for confirmation if you need verified Pro access immediately. Your own Anthropic API key and separately billed API usage are required.</p>
   <a href="https://chromewebstore.google.com/detail/pamamninhgjjkmfhgdiobdhdifaifpab" class="btn-white">⚡ View Chrome listing</a>
 </section>
 
